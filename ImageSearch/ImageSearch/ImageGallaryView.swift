@@ -18,13 +18,8 @@ struct ImageGallaryView: View {
                     NavigationLink {
                         ImageView(imageViewModel: ImageViewModel(image: image))
                     } label: {
-                        if let title = image.title {
-                            Text(title)
-                        } else if let index = images.firstIndex(where: { $0 == image}) {
-                            Text("Image \(index + 1)")
-                        } else {
-                            Text("No Title")
-                        }
+                        ImageRowView(imageRowViewModel: ImageRowViewModel(imageLink: image.link,
+                                                                          title: image.title ?? "No Title"))
                     }
                 }
                 .navigationTitle(imageGallaryViewModel.imageGallary.title ?? "")
@@ -37,9 +32,5 @@ struct ImageGallaryView: View {
 }
 
 #Preview {
-    ImageGallaryView(imageGallaryViewModel: ImageGallaryViewModel(imageGallary: ImageGallary(id: "hjkl",
-                                                                                             title: "Title",
-                                                                                             cover: "fghjkl",
-                                                                                             nsfw: false,
-                                                                                             images: nil)))
+    ImageGallaryView(imageGallaryViewModel: ImageGallaryViewModel(imageGallary: ImageGallary.mockImageGallary))
 }

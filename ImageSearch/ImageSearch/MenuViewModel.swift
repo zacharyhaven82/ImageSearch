@@ -11,12 +11,4 @@ import Foundation
 class MenuViewModel {
     
     var imageSort: ImageSort = .time
-    var windowMenuDisabled: Bool {
-        switch imageSort {
-        case .top:
-            return true
-        default:
-            return false
-        }
-    }
 }

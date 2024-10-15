@@ -10,6 +10,7 @@ import SwiftUI
 struct ImageRowView: View {
     
     @State var imageRowViewModel: ImageRowViewModel
+    
     var body: some View {
         HStack {
             if imageRowViewModel.isLoading {
@@ -40,5 +41,6 @@ struct ImageRowView: View {
 }
 
 #Preview {
-    ImageRowView(imageRowViewModel: ImageRowViewModel(imageLink: "ghjk", title: "Title"))
+    ImageRowView(imageRowViewModel: ImageRowViewModel(imageLink: ImageInfo.mockImageInfo.link,
+                                                      title: ImageInfo.mockImageInfo.title ?? ""))
 }

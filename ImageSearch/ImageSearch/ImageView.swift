@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImageView: View {
     
-    var imageViewModel: ImageViewModel
+    @State var imageViewModel: ImageViewModel
     
     var body: some View {
         NavigationStack {
@@ -36,10 +36,10 @@ struct ImageView: View {
                 imageViewModel.displayError = true
             }
         }
-//        .alert("Error", isPresented: $imageViewModel.displayError, actions: {})
+        .alert("Error", isPresented: $imageViewModel.displayError, actions: {})
     }
 }
 
 #Preview {
-    ImageView(imageViewModel: ImageViewModel(image: ImageInfo(id: "ghjkl", title: "Title", link: "")))
+    ImageView(imageViewModel: ImageViewModel(image: ImageInfo.mockImageInfo))
 }

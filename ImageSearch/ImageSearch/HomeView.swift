@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State var homeViewModel: HomeViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
