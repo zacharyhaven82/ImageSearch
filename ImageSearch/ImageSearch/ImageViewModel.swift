@@ -10,6 +10,10 @@ import Foundation
 @Observable
 class ImageViewModel {
     
+    let loadingText = "Loading"
+    let noImagesText = "No Images..."
+    let errorText = "Error"
+    
     var image: ImageInfo
     var imageData: Data?
     var isLoading = true

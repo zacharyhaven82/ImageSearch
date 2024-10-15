@@ -16,7 +16,7 @@ struct ImageView: View {
             if imageViewModel.isLoading {
                 VStack {
                     ProgressView()
-                    Text("Loading \(imageViewModel.image.title ?? "")")
+                    Text(imageViewModel.loadingText + " " + (imageViewModel.image.title ?? ""))
                 }
             } else {
                 if let data = imageViewModel.imageData {
@@ -24,7 +24,7 @@ struct ImageView: View {
                         .resizable()
                         .scaledToFit()
                 } else {
-                    Text("No Image Available...")
+                    Text(imageViewModel.noImagesText)
                 }
             }
         }
@@ -36,7 +36,7 @@ struct ImageView: View {
                 imageViewModel.displayError = true
             }
         }
-        .alert("Error", isPresented: $imageViewModel.displayError, actions: {})
+        .alert(imageViewModel.errorText, isPresented: $imageViewModel.displayError, actions: {})
     }
 }
 

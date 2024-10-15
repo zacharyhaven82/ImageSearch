@@ -21,9 +21,9 @@ struct MenuView: View {
                 }
             } label: {
                 Label {
-                    Text("Sort By: \(menuViewModel.imageSort.displayValue())")
+                    Text(menuViewModel.sortByText + " " + menuViewModel.imageSort.displayValue())
                 } icon: {
-                    Image(systemName: "arrow.up.arrow.down.square")
+                    Image(systemName: menuViewModel.sortImage)
                 }
             }
             switch menuViewModel.imageSort {
@@ -36,20 +36,20 @@ struct MenuView: View {
                     }
                 } label: {
                     Label {
-                        Text("Timeframe: \(sortWindow.displayValue())")
+                        Text(menuViewModel.timeframeText + " " + sortWindow.displayValue())
                     } icon: {
-                        Image(systemName: "calendar")
+                        Image(systemName: menuViewModel.timeframeImage)
                     }
                 }
             default:
                 Label {
-                    Text("Timeframe: Unneeded")
+                    Text(menuViewModel.timeframeText + " " + menuViewModel.timeframeUnusedText)
                 } icon: {
-                    Image(systemName: "calendar")
+                    Image(systemName: menuViewModel.timeframeImage)
                 }
             }
         } label: {
-            Image(systemName: "line.3.horizontal.decrease.circle")
+            Image(systemName: menuViewModel.menuImage)
         }
     }
 }

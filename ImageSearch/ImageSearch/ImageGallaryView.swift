@@ -19,12 +19,12 @@ struct ImageGallaryView: View {
                         ImageView(imageViewModel: ImageViewModel(image: image))
                     } label: {
                         ImageRowView(imageRowViewModel: ImageRowViewModel(imageLink: image.link,
-                                                                          title: image.title ?? "No Title"))
+                                                                          title: image.title ?? imageGallaryViewModel.noTitleText))
                     }
                 }
                 .navigationTitle(imageGallaryViewModel.imageGallary.title ?? "")
             } else {
-                Text("No Images...")
+                Text(imageGallaryViewModel.noImagesText)
                     .navigationTitle(imageGallaryViewModel.imageGallary.title ?? "")
             }
         }

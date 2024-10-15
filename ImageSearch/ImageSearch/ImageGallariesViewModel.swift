@@ -10,6 +10,10 @@ import Foundation
 @Observable
 class ImageGallariesViewModel {
     
+    let loadingText = "Loading"
+    let noResultsText = "No Results..."
+    let errorText = "Error"
+    
     var searchTerm: String
     var imageSort: ImageSort
     var imageGallaries = [ImageGallary]()

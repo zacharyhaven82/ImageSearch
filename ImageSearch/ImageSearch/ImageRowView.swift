@@ -24,7 +24,7 @@ struct ImageRowView: View {
                         .border(Color.accentColor)
                         .clipped()
                 } else {
-                    Image(systemName: "questionmark")
+                    Image(systemName: imageRowViewModel.defaultImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 35, height: 35)
@@ -34,7 +34,7 @@ struct ImageRowView: View {
             }
             Text(imageRowViewModel.title)
         }.task {
-            imageRowViewModel.imageData = try? await ImageRequest.makeImageRequest(url: imageRowViewModel.imageLink)
+            await imageRowViewModel.getImage()
             imageRowViewModel.isLoading = false
         }
     }

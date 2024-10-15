@@ -10,6 +10,10 @@ import Foundation
 @Observable
 class HomeViewModel {
     
+    let viewTitle = "Image Search"
+    let placeHolderText = "Search"
+    let buttonText = "Search"
+    
     var searchText = ""
     var buttonDisabled = true
     var menuViewModel = MenuViewModel()

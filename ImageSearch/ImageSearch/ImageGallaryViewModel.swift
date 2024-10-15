@@ -10,6 +10,9 @@ import Foundation
 @Observable
 class ImageGallaryViewModel {
     
+    let noImagesText = "No Images..."
+    let noTitleText = "No Title"
+    
     var imageGallary: ImageGallary
     
     init(imageGallary: ImageGallary) {

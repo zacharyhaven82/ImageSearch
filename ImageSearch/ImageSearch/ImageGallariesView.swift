@@ -16,7 +16,7 @@ struct ImageGallariesView: View {
             if imageGallariesViewModel.loading {
                 VStack {
                     ProgressView()
-                    Text("Loading \(imageGallariesViewModel.searchTerm)")
+                    Text(imageGallariesViewModel.loadingText + " " + imageGallariesViewModel.searchTerm)
                 }
                 .navigationTitle(imageGallariesViewModel.searchTerm)
             } else if imageGallariesViewModel.imageGallaries.count > 0 {
@@ -34,7 +34,7 @@ struct ImageGallariesView: View {
                 }
                 .navigationTitle(imageGallariesViewModel.searchTerm)
             } else {
-                Text("No Results...")
+                Text(imageGallariesViewModel.noResultsText)
                 .navigationTitle(imageGallariesViewModel.searchTerm)
             }
         }
@@ -46,7 +46,7 @@ struct ImageGallariesView: View {
                 print(error)
             }
         }
-        .alert("Error", isPresented: $imageGallariesViewModel.displayError, actions: {})
+        .alert(imageGallariesViewModel.errorText, isPresented: $imageGallariesViewModel.displayError, actions: {})
     }
 }
 

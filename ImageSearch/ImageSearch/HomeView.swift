@@ -15,7 +15,7 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    TextField("Search", text: $homeViewModel.searchText)
+                    TextField(homeViewModel.placeHolderText, text: $homeViewModel.searchText)
                         .textFieldStyle(.roundedBorder)
                         .onChange(of: homeViewModel.searchText) { oldValue, newValue in
                                 homeViewModel.buttonDisabled = newValue.isEmpty
@@ -26,13 +26,13 @@ struct HomeView: View {
                     ImageGallariesView(imageGallariesViewModel: ImageGallariesViewModel(searchTerm: homeViewModel.searchText,
                                                                                         imageSort: homeViewModel.menuViewModel.imageSort))
                 } label: {
-                    Text("Search")
+                    Text(homeViewModel.buttonText)
                 }
                 .buttonStyle(.borderedProminent).disabled(homeViewModel.buttonDisabled)
                 .padding()
                 Spacer()
             }
-            .navigationTitle("Image Search")
+            .navigationTitle(homeViewModel.viewTitle)
             .padding()
         }
     }
